@@ -1,0 +1,16 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <h2>Create Account</h2>
+
+    <input type="email" placeholder="Email" [(ngModel)]="email" />
+
+    <input type="password" placeholder="Password" [(ngModel)]="password" />
+
+    <button (click)="signup()">Signup</button>
+
+    <p>
+      Already have account?
+      <a routerLink="/">Login</a>
+    </p>
+  </div>
+</div>

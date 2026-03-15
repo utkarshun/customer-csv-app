@@ -1,0 +1,54 @@
+<div class="details-page">
+  <section class="hero-card">
+    <div>
+      <p class="eyebrow">Customer Profile</p>
+      <h2 class="page-title">{{ customer.Name }}</h2>
+      <p class="hero-subtitle">
+        Quick view of customer information and vehicle details.
+      </p>
+    </div>
+
+    <div class="hero-badge">{{ customer.Model }}</div>
+  </section>
+
+  <div class="summary-strip">
+    <div class="summary-item">
+      <span>Phone</span>
+      <strong>{{ customer.phno }}</strong>
+    </div>
+
+    <div class="summary-item">
+      <span>Due Date</span>
+      <strong>{{ customer["Due Date"] }}</strong>
+    </div>
+  </div>
+
+  <div class="details-card">
+    <div class="row">
+      <label>Name</label>
+      <p>{{ customer.Name }}</p>
+    </div>
+
+    <div class="row">
+      <label>Phone</label>
+      <p>{{ customer.phno }}</p>
+    </div>
+
+    <div class="row">
+      <label>Registration No</label>
+      <p>{{ customer["Registration No"] }}</p>
+    </div>
+
+    <div class="row">
+      <label>Due Date</label>
+      <p>{{ customer["Due Date"] }}</p>
+    </div>
+
+    <div class="row">
+      <label>Model</label>
+      <p>{{ customer.Model }}</p>
+    </div>
+  </div>
+
+  <button class="back-btn" (click)="goBack()">← Back to Dashboard</button>
+</div>

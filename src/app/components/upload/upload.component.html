@@ -1,0 +1,103 @@
+<div class="upload-page">
+  <!-- Header -->
+  <div class="page-header">
+    <div class="header-content">
+      <h1>Customer Management System</h1>
+      <p>Efficiently manage and track your customer information</p>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="upload-container">
+    <!-- Left Section - Features -->
+    <div class="features-section">
+      <h2>Why upload CSV?</h2>
+      <div class="features-list">
+        <div class="feature-item">
+          <div class="feature-icon">📊</div>
+          <h3>Bulk Import</h3>
+          <p>Upload multiple customer records at once</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <h3>Fast Processing</h3>
+          <p>Quick and efficient data processing</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔍</div>
+          <h3>Easy Search</h3>
+          <p>Search and filter customers instantly</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📅</div>
+          <h3>Track Dates</h3>
+          <p>Monitor renewal and due dates</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Section - Upload Card -->
+    <div class="upload-section">
+      <div class="card upload-card">
+        <div class="card-icon">📁</div>
+        <h2>Upload customer CSV</h2>
+        <p>Select a CSV file containing customer records</p>
+
+        <!-- File Requirements -->
+        <div class="file-requirements">
+          <h4>CSV Requirements:</h4>
+          <ul>
+            <li>Columns: Name, phno, Registration No, Due Date, Model</li>
+            <li>Format: .csv only</li>
+            <li>No special characters in filenames</li>
+          </ul>
+        </div>
+
+        <!-- Upload Box -->
+        <div
+          class="upload-box"
+          (click)="fileInput.click()"
+          (dragover)="onDragOver($event)"
+          (dragleave)="onDragLeave($event)"
+          [class.drag-over]="isDragging"
+        >
+          <input
+            type="file"
+            #fileInput
+            accept=".csv"
+            (change)="onFileSelect($event)"
+            (drop)="onFileDrop($event)"
+          />
+          <div class="upload-icon">📤</div>
+          <p class="upload-text">Click to select or drag & drop CSV file</p>
+          <small>Your file is safe and secure</small>
+        </div>
+
+        <!-- File Selected Info -->
+        <div *ngIf="selectedFile" class="file-info">
+          <div class="file-icon">✓</div>
+          <div class="file-details">
+            <p class="file-name">{{ selectedFile?.name }}</p>
+            <small>{{ (selectedFile?.size! / 1024).toFixed(2) }} KB</small>
+          </div>
+        </div>
+
+        <!-- Upload Button -->
+        <button class="primary-btn upload-btn" (click)="uploadFile()">
+          <span *ngIf="!selectedFile">Select File to Upload</span>
+          <span *ngIf="selectedFile">Upload {{ selectedFile?.name }}</span>
+        </button>
+
+        <!-- Help Text -->
+        <p class="help-text">
+          Need help? <a href="#">Download sample CSV template</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <p>&copy; 2026 Customer Management System. All rights reserved.</p>
+  </div>
+</div>
